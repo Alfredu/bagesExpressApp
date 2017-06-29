@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams} from 'ionic-angular';
 
 
 /*
@@ -13,12 +13,26 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'viatges.html'
 })
 export class ViatgesPage {
+  private dadesViatge : {};
+  private estacions:{};
   private viatges : any;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.viatges = navParams.get("viatges");
+    this.estacions = {
+    "manresa-alta": "Manresa Alta",
+    "barcelona-palau-reial":"Barcelona - Palau Reial"
+  };
+
+    this.dadesViatge = {
+      origen : "", 
+      desti : ""
+    }
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ViatgesPage');
+  ngOnInit() {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.dadesViatge["origen"] = this.estacions[this.viatges.dades.origen]
+    this.dadesViatge["desti"]= this.estacions[this.viatges.dades.desti]
   }
 }

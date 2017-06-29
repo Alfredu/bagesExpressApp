@@ -14,7 +14,10 @@ import {ViatgesService} from '../../providers/viatges-service'
 export class HomePage {
   dades : any;
   constructor(public navCtrl: NavController, private viatgesService : ViatgesService, private loadingCtrl : LoadingController) {
-    
+    this.dades = {
+      origen : "", 
+      desti : ""
+    };
   }
   ngOnInit() {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
@@ -22,6 +25,7 @@ export class HomePage {
     
   }
   buscaViatges(data:any){
+    console.log(this.dades.origen);
     let loader = this.loadingCtrl.create({
       content: "Buscant viatges.."
     });

@@ -11,7 +11,7 @@
 
   <ion-item>
     <ion-label floating>Parada de sortida</ion-label>
-    <ion-input type="text"></ion-input>
+    <ion-input type="text" [(ngModel)]="dades.origen"></ion-input>
   </ion-item>
 
   <ion-item>
@@ -22,7 +22,7 @@
   <ion-item>
     <button ion-button icon-left (click)="buscaViatges('hola')">
       <ion-icon name="bus"></ion-icon>
-      Buscar
+      BUSCAR
     </button>
   </ion-item>
 </ion-list>
